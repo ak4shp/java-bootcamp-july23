@@ -31,5 +31,6 @@ public class Survey {
         System.out.println("Weekly, you spend $"+(coffeePrice*coffeeAmount)+" on coffee");
         System.out.println("Weekly, you spend $"+(foodPrice * foodAmount)+" on food");
 
+        scan.close();
     }
 }
