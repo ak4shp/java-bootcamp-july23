@@ -32,6 +32,7 @@ public class SwitchStatements {
         // Determine the comfort level based on both temperature and humidity (e.g., too hot, too cold, comfortable)
         // Decide whether to use if-else or switch
         //* if-else because 2 variables to be compared */
+        System.out.println(temperature + humidity);
 
         // Section 5: Age and income
         int age = 25;
@@ -39,6 +40,7 @@ public class SwitchStatements {
         // Determine eligibility for a specific credit card based on age and income
         // Decide whether to use if-else or switch
         //* if-else because 2 variables to be compared */
+        System.out.println(age + income);
 
 
         // Section 1: Traffic light colors
@@ -46,19 +48,20 @@ public class SwitchStatements {
         // Determine what action to take based on the traffic light color (e.g., green, yellow, red)
         // Decide whether to use if-else or switch
         //* Switch */
-
+        System.out.println(lightColor);
 
         // Section 2: Exam grade
         int grade = 85;
         // Determine the letter grade based on the numeric grade (e.g., A, B, C, D, F)
         // Decide whether to use if-else or switch
         //* Switch */
-
+        System.out.println(grade);
 
         // Section 3: Browser type
         String browser = "Chrome";
         // Check if the browser is one of the following: Chrome, Firefox, Safari, Edge, or Opera
         // Decide whether to use if-else or switch
         //* Switch */   
+        System.out.println(browser);
     }
 }
