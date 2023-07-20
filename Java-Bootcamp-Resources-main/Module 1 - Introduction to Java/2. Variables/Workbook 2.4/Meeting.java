@@ -12,7 +12,7 @@ public class Meeting {
         System.out.println("Factoring in costs, we made $<profit> in profit");
         System.out.println("The refunds are at a low $<refunds>. This is a good sign!");
         System.out.println("Shipping costs were high. We paid $<shipping> in shipping");
-
+        System.out.println(sales + profit + refunds + shipping);
 
     }
 }
