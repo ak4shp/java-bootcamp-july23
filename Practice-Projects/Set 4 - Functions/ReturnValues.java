@@ -2,12 +2,21 @@
 public class ReturnValues{
     public static void main(String[] args) {
         double area = calculateArea(1.2, 2.4);
+        double area2 = calculateArea(1.2, 0);
+
         System.out.println("Area is: "+area);
+        System.out.println("Area is: "+area2);
+
         System.out.println(explainArea("spanish"));
         System.out.println(explainArea("japanese"));
     }
 
     public static double calculateArea(double length, double width){
+        // Edge case
+        if(length <= 0 || width <= 0){
+            System.out.println("INVALID DIMENSION !!");
+            System.exit(0);  //! Terminates the currently running Java Virtual Machine*/
+        }
         double area = length * width;
         return area;
     }
