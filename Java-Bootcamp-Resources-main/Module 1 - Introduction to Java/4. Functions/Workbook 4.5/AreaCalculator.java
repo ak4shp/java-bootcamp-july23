@@ -3,24 +3,20 @@ public class AreaCalculator {
         System.out.println("Thank you for using the area calculator");
         System.out.println("This calculator lets you get the area of: ");
         System.out.println("1 - Square\n2 - Rectangle\n3 - Triangle\n4 - Circle\n");
-
-        
+ 
         //Task 5 – Call area functions.
-
         // double square = area of square with a side of 2.
         // double rectangle = area of rectangle with a length of 1, and a width of 2. 
         // double triangle = area of triangle with a base of 1, and a width of 2. 
         // double circle = area of circle with a radius of 2. 
 
-
         //Task 7 – Call a function that prints all the areas. 
-
+        printAreas();
     }
 
+
     //Task 1 - Write a function that calculates the area of a square. 
-
-
-    /**
+     /**
      * Function name: areaSquare - returns the area of a square.
      * @param side (double)
      * @return the area (double)
@@ -30,15 +26,18 @@ public class AreaCalculator {
      *  2. Calculates the area of the square. A = side²
      */
     public static double areaSquare(double side) {
+        if(side < 0){
+            System.out.println("Error: imposible");
+            System.exit(0);
+        }
 
-        return 0;
+        double area = side * side;
+        return area;
     }
 
 
     //Task 2 - Write a function that calculates the area of a rectangle. 
-
-
-    /**
+   /**
      * Function name: areaRectangle – returns the area of a rectangle.
      * @param length (double).
      * @param width  (double).
@@ -49,12 +48,17 @@ public class AreaCalculator {
      *  2. Calculates the area of the rectangle. A = length * width
      */
     public static double areaRectangle(double length, double width) {
+        if(length < 0 || width < 0){
+            System.out.println("Error: imposible");
+            System.exit(0);
+        }
 
-        return 0;  
+        double area = length * width;
+        return area;
     } 
 
-    //Task 3 - Write a function that calculates the area of a triangle. 
 
+    //Task 3 - Write a function that calculates the area of a triangle. 
     /**
      * Function name: areaTriangle – it returns the area of a triangle.
      * @param base: (double).
@@ -66,13 +70,17 @@ public class AreaCalculator {
      *  2. Calculates the area of the triangle. A = (base * height)/2
      */ 
     public static double areaTriangle(double base, double height) {
+        if(base < 0 || height < 0){
+            System.out.println("Error: imposible");
+            System.exit(0);
+        }
 
-        return 0; 
+        double area = (base * height)/2;
+        return area;
     }
 
+
     //Task 4 - Write a function that calculates the area of circle. 
-
-
     /**
      * Function name: areaCircle – it returns the area of a circle.
      * @param radius (double).
@@ -83,15 +91,17 @@ public class AreaCalculator {
      *  2. Calculates the area of the circle. 
      */ 
     public static double areaCircle(double radius) {
+        if(radius < 0){
+            System.out.println("Error: imposible");
+            System.exit(0);
+        }
 
-        return 0;
+        double area = 2*3.14*radius*radius;
+        return area;
     }
 
 
-
     //Task 6: Write a function that prints every area.
-
-
     /**
      * Function name: printAreas – it prints four areas
      * @param square – square area (double)
@@ -106,6 +116,17 @@ public class AreaCalculator {
      *  4. print: ("Circle area: <circle area>")
      * 
      */
+    public static void printAreas(){
+        // double squareArea2 = areaSquare(-2);
+        double squareArea = areaSquare(2);
+        double rectangleArea = areaRectangle(1,2);
+        double triangleArea = areaTriangle(1,2);
+        double circleArea = areaCircle(2);
 
-
+        // System.out.println("Square area2: "+ squareArea2);
+        System.out.println("Square area: "+ squareArea);
+        System.out.println("Rectangle area: "+ rectangleArea);
+        System.out.println("Triangle area: "+ triangleArea);
+        System.out.println("Circle area: "+ circleArea);
+    }
 }
