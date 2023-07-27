@@ -5,7 +5,7 @@ public class JavaRolls {
         Scanner scan = new Scanner(System.in);
         // See Learn the Part for detailed instructions.
         System.out.println( "Let's play Rolling Java. Type anything to start.");
-        String dummy = scan.nextLine();
+        scan.nextLine();  //! Dummy never used. So do not assign. use 'bare scan'.
 
         String homeMsg ="\nGreat, here are the rules:\n\n"
                 + "\t- If you roll a 6, the game stops.\n"
@@ -14,7 +14,7 @@ public class JavaRolls {
                 + "You must collect at least 3 points to win. Enter anything to roll:";
 
         System.out.println(homeMsg);
-        dummy = scan.nextLine();
+        scan.nextLine();
 
         int score = 0;
         boolean isRoll = true;
