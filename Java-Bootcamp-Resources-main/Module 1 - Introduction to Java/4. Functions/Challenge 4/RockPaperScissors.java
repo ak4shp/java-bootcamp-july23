@@ -30,6 +30,8 @@ public class RockPaperScissors {
             String compChoice = computerChoice();
             String result = result(userChoice, compChoice);
             printResult(userChoice, compChoice, result);
+        } else{
+            System.out.println("Darn, some other time...!");
         }
 
         scan.close();
