@@ -12,12 +12,24 @@ public class SignIn {
         System.out.println("\nWelcome to Javagram! Sign in below\n");
         System.out.print("- Username: ");
         //pick up username
+        String userName = scan.nextLine();
         System.out.print("- Password: ");
         //pick up password
+        String userPass = scan.nextLine();
 
         // see Learn the Part for the remaining instructions.
         
-        
+        while(true){
+            if(username.equals(userName) && password.equals(userPass)){
+                System.out.println("\nSign in successful. Welcome!");
+                break;
+            }
+            System.out.println("\nIncorrect, please try again!\n");
+            System.out.print("- Username: ");
+            userName = scan.nextLine();
+            System.out.print("- Password: ");
+            userPass = scan.nextLine();
+        }
         /* will be useful for task 2
         
             System.out.println("\nIncorrect, please try again!\n");
@@ -25,9 +37,9 @@ public class SignIn {
             usernameEntry = scan.nextLine();
             System.out.print("- Password: ");
             passwordEntry = scan.nextLine();
-
         
         */
+        
         scan.close();
         
     }
