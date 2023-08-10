@@ -104,7 +104,7 @@ public class Hangman{
                 System.out.println("\nWo hooo !! You saved a life!");
                 break;
             }
-            
+
             if(wrongAttempts== 5){
                 System.out.println("\t#----# WARNING: Last attempt! #----#");
             }
@@ -128,14 +128,14 @@ public class Hangman{
     
     public static char[] matchAndUpdate(char[] guessed, String word,  char guessLetter){
         // System.out.println("The word:  "+word);
-        int idx = 0;
+        // int idx = 0;
         boolean charNotFound = true;
         for(int i=0; i<word.length(); i++){
             char c = word.charAt(i);
             if(c==guessLetter && guessed[i] =='_'){
-                idx = i;
                 guessed[i] = guessLetter;
                 charNotFound = false;
+                // idx = i;
                 break;
             } 
         }
