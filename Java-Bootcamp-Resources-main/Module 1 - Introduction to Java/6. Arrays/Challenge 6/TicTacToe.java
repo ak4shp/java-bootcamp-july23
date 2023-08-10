@@ -1,40 +1,41 @@
 import java.util.Scanner;
 
 public class TicTacToe {
-
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        
-            System.out.println("\nLet's play tic tac toe");
+		char[][] ticBoard = {
+			{'_', '_', '_'},
+			{'_', '_', '_'},
+			{'_', '_', '_'}};
+		String res = "\n It's a Tie"	;
 
-            //Task 1: Create an array with three rows of '_' characters.
+		System.out.println("\nLet's play tic tac toe");
+		printBoard(ticBoard);	
 
-            //Task 2: Call the function printBoard();
+		for(int i=1; i<10; i++){
+			if(i%2 != 0){   // X turn
+				System.out.println("\nTurn X ->");
+				int[] userChoice = askUser(ticBoard);
+				ticBoard[userChoice[0]][userChoice[1]] = 'X';
+			} else {
+				System.out.println("\nTurn O ->");
+				int[] userChoice = askUser(ticBoard);
+				ticBoard[userChoice[0]][userChoice[1]] = 'O';
+			}
 
-             
-              /*
-              {  Task 3: Loop through turns.
-
-                  if (X) turn {
-                     Task 4: call askUser(). 
-                     Task 5: populate the board using askUser's return value.
-                  } else {
-                      Task 4: call askUser(). 
-                      Task 5: populate the board using askUser's return value. Then, print it.
-
-                  }
-
-                Task 6 - Call the function.
-                   if return value == 3 {
-                     print: X wins and break the loop
-                  } else if return value == -3 {
-                     print: O wins and break the loop
-                  }
-
-              } 
-              */
-
-            scan.close();
+			printBoard(ticBoard);	
+			int score = checkWin(ticBoard);
+			if(score==3){
+				res = "\nX Wins.";
+				break;
+			} else if(score==-3){
+				res = "\nO Wins.";
+				break;
+			}
+		}
+		System.out.println(res);
+		System.out.println("\nDid you enjoy? Let's play again.");
+        scan.close();
         }
 
 
@@ -49,6 +50,16 @@ public class TicTacToe {
      *      • each row precedes a tab of space
      *      • each character in the grid has one space from the other character
      */        
+	public static void printBoard(char[][] board){
+		for(int i=0; i<board.length; i++){
+			System.out.print("\n\n\t" );
+			for(int j=0; j<board[i].length; j++){
+				System.out.print(board[i][j]+"   ");
+			}
+		}
+		System.out.println();
+	}
+
 
    /** Task 4 - Write a function that lets the user choose a spot
      * Function name – askUser
@@ -61,6 +72,28 @@ public class TicTacToe {
      *   3. Return the row and column in an int[] array.
      * 
      */
+	public static int[] askUser(char[][] board){
+		int[] place = new int[2];
+		System.out.print("\tpick a row and column number: ");
+		while(true){
+			int p1 = scan.nextInt();
+			int p2 = scan.nextInt();
+			scan.nextLine();
+			if(!(p1>=0 && p1<=2 && p2>=0 && p2<=2)){
+				System.out.print("\nInvalid numbers! Choose again: ");
+				continue;
+			} 
+			if(board[p1][p2] != '_'){
+				System.out.print("\nAlready taken! Choose again: ");
+				continue;
+			} else{
+				place[0] = p1;
+				place[1] = p2;
+				return place;
+			}
+		}
+	}
+
 
     /** Task 6 - Write a function that determines the winner
      * Function name - checkWin 
@@ -74,6 +107,24 @@ public class TicTacToe {
      *   4. Check the left diagonal for a straight X or straight O (Task 9).
      *   5. Check the right diagonal for a straight X or straight O (Task 10).
      */
-
-
+	public static int checkWin(char[][] board){
+		int count = 0;
+		
+		for(int i=0; i<board.length; i++){
+			if((board[0][i] == 'X' && board[1][i] == 'X' && board[2][i] == 'X') 
+			|| (board[i][0] == 'X' && board[i][1] == 'X' && board[i][2] == 'X')
+			|| (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') 
+			|| (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')) {
+				count = 3;
+				break;
+			} else if((board[0][i] == 'O' && board[1][i] == 'O' && board[2][i] == 'O') 
+			|| (board[i][0] == 'O' && board[i][1] == 'O' && board[i][2] == 'O')
+			|| (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') 
+			|| (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')) {
+				count = -3;
+				break;
+			}
+		}
+		return count;
+	}
 }
