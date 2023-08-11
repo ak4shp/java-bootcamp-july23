@@ -33,6 +33,16 @@ public class Main {
         while (status.equals("continue")) {
             System.out.print("To edit another rating, type: 'continue': ");
             status = scanner.next();
+            if(status.equalsIgnoreCase("continue")){
+                System.out.print("\nPlease choose an integer between 0 - 9: ");
+                int idx = scanner.nextInt();
+                Movie movie = store.getMovie(idx);
+                System.out.print("Set a new rating for " + movie.getName() + ": ");
+                double newRating = scanner.nextDouble();
+                movie.setRating(newRating);
+                store.setMovie(idx, movie);
+                printStore();
+            }
         }
         scanner.close();
     }

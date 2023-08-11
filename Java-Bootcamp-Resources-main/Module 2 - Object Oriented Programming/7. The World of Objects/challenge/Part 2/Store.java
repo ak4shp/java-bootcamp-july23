@@ -3,16 +3,16 @@ public class Store {
     private Movie[] movies;
 
     public Store() {
-        // TODO
+        this.movies = new Movie[10];
     }
 
     public Movie getMovie(int index) {
-        // TODO 
-        return null;
+        Movie copy = new Movie(this.movies[index]);
+        return copy;
     }
 
     public void setMovie(int index, Movie movie) {
-        // TODO 
+        this.movies[index] = new Movie(movie);
     }
 
 
