@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
   
     public static void main(String[] args) {
@@ -13,16 +15,21 @@ public class Main {
             new Person("Marcus Aurelius", "Rome", "121 AD", 8),
             new Person("Leonidas", "Greece", "540 BC", 9),
             new Person("Sun Tzu", "China", "544 BC", 10),
-            new Person("Hammurabi", "Babylon", "1750 BC", 11),
+            new Person("Hammurabi", "Babylon", "1750 BC", 10),
         };
 
         Airline airline = new Airline();
 
         for (int i = 0; i < people.length; i++) {
             boolean passportApproved = people[i].applyPassport();
-             // TODO: passport logic here
 
-            airline.createReservation(people[i]);
+            if(passportApproved){
+                people[i].setPassport();
+                airline.createReservation(people[i]);
+            } else{
+                System.out.println("Sorry " + people[i].getName() + ". Your passport: " + Arrays.toString(people[i].getPassport()) + " is not valid.\n");
+            }
+
         }
 
      }

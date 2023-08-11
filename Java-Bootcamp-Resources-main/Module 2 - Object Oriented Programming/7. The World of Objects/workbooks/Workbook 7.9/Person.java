@@ -16,12 +16,12 @@ public class Person {
         this.passport = new String[3];
     }
  
-    public Person(Person source) {
+    public Person(Person source) {  //? Copy Constructor
         this.name = source.name;
         this.nationality = source.nationality;
         this.dateOfBirth = source.dateOfBirth;
         this.seatNumber = source.seatNumber;
-        this.passport = Arrays.copyOf(source.passport, source.passport.length);
+        this.passport = Arrays.copyOf(source.passport, source.passport.length);  //? Reference trap
     }
     
     public String getName() {
@@ -57,7 +57,7 @@ public class Person {
     }
  
     public String[] getPassport() {
-        return Arrays.copyOf(passport, passport.length);
+        return Arrays.copyOf(passport, passport.length);  //? Return copy of origianl array.
     }
 
     public void setPassport() {
