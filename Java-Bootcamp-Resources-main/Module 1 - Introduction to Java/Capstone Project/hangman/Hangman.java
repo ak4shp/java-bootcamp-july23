@@ -83,8 +83,8 @@ public class Hangman{
         }
         
         System.out.println("Hangman is ready!! Be careful with your guessings...");
+        
         while(true){
-            
             System.out.println("\n"+gallows[wrongAttempts]);
             if(wrongAttempts == 6){
                 System.out.println("\nYou are dead... Hangman's patience exceed.");
@@ -102,11 +102,13 @@ public class Hangman{
             String guessedWord = String.valueOf(guessed);
             if(guessedWord.equals(word)){
                 System.out.println("\nWo hooo !! You saved a life!");
+                System.out.println("The word is: "+word);
+
                 break;
             }
 
             if(wrongAttempts== 5){
-                System.out.println("\t#----# WARNING: Last attempt! #----#");
+                System.out.println("\n\t#----# WARNING: Last attempt! #----#");
             }
         }
     }
@@ -128,14 +130,12 @@ public class Hangman{
     
     public static char[] matchAndUpdate(char[] guessed, String word,  char guessLetter){
         // System.out.println("The word:  "+word);
-        // int idx = 0;
         boolean charNotFound = true;
         for(int i=0; i<word.length(); i++){
             char c = word.charAt(i);
             if(c==guessLetter && guessed[i] =='_'){
                 guessed[i] = guessLetter;
                 charNotFound = false;
-                // idx = i;
                 break;
             } 
         }
